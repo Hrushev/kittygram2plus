@@ -136,7 +136,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_THROTTLE_CLASSES': [
         'rest_framework.thorttling.UserRateThrottling',
-        'rest_framework.thorttling.UserRateThrottling',
+        'rest_framework.thorttling.AnonRateThrottling',
     ],
     'DEFAULT_THROTTLE_RATES': {
         'user': '10000/day',  # Лимит для UserRateThrottle
