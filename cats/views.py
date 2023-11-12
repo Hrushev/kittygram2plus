@@ -1,5 +1,6 @@
 from rest_framework import viewsets
 from rest_framework.throttling import ScopedRateThrottle
+from rest_framework.pagination import PageNumberPagination
 
 from .models import Achievement, Cat, User
 from .serializers import AchievementSerializer, CatSerializer, UserSerializer
@@ -17,6 +18,7 @@ class CatViewSet(viewsets.ModelViewSet):
 
     # Для любых пользователей установим кастомный лимит 1 запрос в минуту
     throttle_scope = 'low_request'
+    pagination_class = PageNumberPagination
 
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
