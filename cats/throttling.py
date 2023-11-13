@@ -9,4 +9,4 @@ class WorkingHoursRateThrotlle(throttling.BaseThrottle):
         now = datetime.datetime.now().hour
         if now >= 3 and now <= 5:
             return False
-        return True 
+        return True
